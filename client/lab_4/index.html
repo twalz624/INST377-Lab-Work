@@ -8,17 +8,17 @@
     <title>Thomas Walz's Lab 4</title>
 </head>
 <body>
-    <div class="header">
-        <h1>Thomas Walz's Labs for INST377</h1>
-    </div>
     <div class="wrapper">
+        <div class="header">
+            <h1>Thomas Walz's Labs for INST377</h1>
+        </div>
         <div class="container">
-            <div class="box">
+            <div class="box left_section">
                 <h2>Form Inputs</h2>
-                <form action="../../server/routes/apiRoutes.js" class="box">
-                    <label>Restaurant Name</label>
-                    <input id="resto">
-                    <button class="submit">Submit</button>
+                <form action="/api" class="box">
+                    <label for="resto">Restaurant Name</label>
+                    <input type = "text" name="resto" id="resto"/>
+                    <button type="submit">Submit</button>
                 </form>
             </div>
             <div class="box right_section">
