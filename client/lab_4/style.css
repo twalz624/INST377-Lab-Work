@@ -108,8 +108,8 @@ form input {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    justify-content: space-between;
     flex-wrap: wrap;
-    justify-content: flex-start;
   }
   .header {
     background-color: rgba(239, 239, 239, 0.40);
@@ -123,6 +123,9 @@ form input {
     border-radius: 4px;
     padding: 1.5rem;
     margin: 0 auto;
+  }
+  .right_section {
+    width: 60vw;
   }
 
 }
