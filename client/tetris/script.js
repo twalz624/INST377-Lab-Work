@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const width = 10;
   let nextRandom = 0;
   let timerId;
+  let score = 0;
 
   // The Tetrominoes
   const lTetromino = [
@@ -87,6 +88,27 @@ document.addEventListener('DOMContentLoaded', () => {
       displaySquares[displayIndex + index].classList.add('tetromino');
     });
   }
+
+  // add score
+  function addScore() {
+    for (let i = 0; i < 199; i += width) {
+      const row = [i, i + 1, i + 2, i + 3, i + 4, i + 5, i + 6, i + 7, i + 8, i + 9];
+
+      // eslint-disable-next-line no-loop-func
+      if (row.every((index) => squares[index].classList.contains('taken'))) {
+        score += 10;
+        ScoreDisplay.innerHTML = score;
+        // eslint-disable-next-line no-loop-func
+        row.forEach((index) => {
+          squares[index].classList.remove('taken');
+          squares[index].classList.remove('tetromino');
+        });
+        const squaresRemoved = squares.splice(i, width);
+        squares = squaresRemoved.concat(squares);
+        squares.forEach((cell) => grid.appendChild(cell));
+      }
+    }
+  }
   // freeze function //
   function freeze() {
     if (current.some((index) => squares[currentPosition + index + width].classList.contains('taken'))) {
@@ -97,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
       current = theTetrominoes[random][currentRotation];
       currentPosition = 4;
       draw();
+      addScore();
       displayShape();
     }
   }
