@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // move the tetromino left, unless it hits a wall
   function moveLeft() {
     undraw();
-    const isAtLeftEdge = current.some(index = (currentPosition + index) % width === 0);
+    const isAtLeftEdge = current.some((index) => (currentPosition + index) % width === 0);
 
     if (!isAtLeftEdge) currentPosition -= 1;
 
@@ -86,4 +86,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     draw();
   }
+
+  // assign functions to keyCodes //
+  function control(e) {
+    if (e.keyCode === 37) {
+      moveLeft();
+    }
+  }
+  document.addEventListener('keyup', control);
 });
