@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Thomas Walz's Lab 4</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <h1>Thomas Walz's Labs for INST377</h1>
+        </div>
+        <div class="container">
+            <div class="box left_section">
+                <h2>Form Inputs</h2>
+                <form action="/api" class="box main_form">
+                    <div>
+                        <label for="resto">Restaurant Name</label>
+                        <input type = "text" name="resto" id="resto"/>
+                    </div>
+                    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="box right_section">
+               <h2> Local Restaurants</h2>
+               <div class="box" id="restaurant_list">
+                A list of restaurants from an API
+               </div> 
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <footer>MY GITHUB ACCOUNT NAME: <a href="https://github.com/twalz624">twalz624</a></footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
