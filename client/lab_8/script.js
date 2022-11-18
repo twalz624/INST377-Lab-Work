@@ -84,6 +84,15 @@ function initMap() {
   return map;
 }
 
+function markerPlace(array, map) {
+  console.log('markerPlace', array);
+  // const marker = L.marker([]).addTo(map);
+  array.forEach((item) => {
+    const {coordinates} = item.geocoded_column_1;
+    L.marker([coordinates[1], coordinates[0]]).addTo(map);
+  });
+}
+
 async function mainEvent() {
   /*
       ## Main Event
@@ -134,6 +143,7 @@ async function mainEvent() {
     console.log('input', event.target.value);
     const newFilterList = filterList(currentList, event.target.value);
     injectHTML(newFilterList);
+    markerPlace(currentList, pageMap);
   });
 
   // And here's an eventListener! It's listening for a "submit" button specifically being clicked
@@ -148,6 +158,7 @@ async function mainEvent() {
 
     // And this function call will perform the "side effect" of injecting the HTML list for you
     injectHTML(currentList);
+    markerPlace(currentList, pageMap);
 
     // By separating the functions, we open the possibility of regenerating the list
     // without having to retrieve fresh data every time
