@@ -87,6 +87,12 @@ function initMap() {
 function markerPlace(array, map) {
   console.log('markerPlace', array);
   // const marker = L.marker([]).addTo(map);
+  map.eachLayer((layer) => {
+    if (layer instanceof L.Marker) {
+      layer.remove();
+    }
+  });
+
   array.forEach((item) => {
     const {coordinates} = item.geocoded_column_1;
     L.marker([coordinates[1], coordinates[0]]).addTo(map);
