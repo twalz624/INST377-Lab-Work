@@ -62,7 +62,7 @@
     So: they style the tags directly
   */
   
-  html {
+html {
     background-color: rgb(91, 196, 238);
     font-size: 16px;
     min-width: 300px;
@@ -76,7 +76,7 @@
     -webkit-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     text-size-adjust: 100%;
-  }
+}
   
   body {
     margin: 0;
@@ -111,7 +111,14 @@
     - like this: <div class="wrapper">
     - note that the period vanishes there!
   */
-  
+  /* map styles */
+#map { 
+    height: 360px; 
+    display: block;
+    width: 360px;
+    border: 2px dashed rgb(99,99,99);
+    margin-bottom: 1rem;
+}
   
   .wrapper {
     min-height: 100vh;

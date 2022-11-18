@@ -74,6 +74,11 @@ function filterList(array, filterInputValue) {
   return newArray;
 }
 
+function initMap() {
+  console.log('initMap');
+  const map = L.map('map').setView([51.505, -0.09], 13);
+}
+
 async function mainEvent() {
   /*
       ## Main Event
@@ -81,7 +86,7 @@ async function mainEvent() {
         When you're not working in a heavily-commented "learning" file, this also is more legible
         If you separate your work, when one piece is complete, you can save it and trust it
     */
-
+  initMap();
   // the async keyword means we can make API requests
   const form = document.querySelector('.main_form'); // get your main form so you can do JS with it
   const submit = document.querySelector('button[type="submit"]'); // get a reference to your submit button
