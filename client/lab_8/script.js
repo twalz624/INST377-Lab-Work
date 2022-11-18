@@ -6,7 +6,6 @@ function getRandomIntInclusive(min, max) {
 }
 
 function injectHTML(list) {
-  console.log('fired injectHTML');
   const target = document.querySelector('#restaurant_list');
   target.innerHTML = '';
 
@@ -85,16 +84,18 @@ function initMap() {
 }
 
 function markerPlace(array, map) {
-  // const marker = L.marker([]).addTo(map);
   map.eachLayer((layer) => {
     if (layer instanceof L.Marker) {
       layer.remove();
     }
   });
 
-  array.forEach((item) => {
+  array.forEach((item, index) => {
     const {coordinates} = item.geocoded_column_1;
     L.marker([coordinates[1], coordinates[0]]).addTo(map);
+    if (index === 0) {
+      map.setView([coordinates[1], coordinates[0]], 10);
+    }
   });
 }
 
@@ -145,7 +146,6 @@ async function mainEvent() {
   loadAnimation.classList.add('hidden');
 
   form.addEventListener('input', (event) => {
-    console.log('input', event.target.value);
     const newFilterList = filterList(currentList, event.target.value);
     injectHTML(newFilterList);
     markerPlace(newFilterList, pageMap);
